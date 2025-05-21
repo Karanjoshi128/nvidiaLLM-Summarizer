@@ -19,8 +19,13 @@ logging.basicConfig(level=logging.DEBUG)
 app = Flask(__name__)
 CORS(app)
 
+# Load API URLs and keys from .env
 NVIDIA_API_BASE_URL = os.getenv("NVIDIA_API_BASE_URL")
 API_KEY = os.getenv("API_KEY")
+# Add any other URLs/keys you want to use from .env here
+# For example:
+# ANOTHER_SERVICE_URL = os.getenv("ANOTHER_SERVICE_URL")
+# ANOTHER_API_KEY = os.getenv("ANOTHER_API_KEY")
 
 @app.route('/summarize', methods=['POST'])
 def summarize_file():
